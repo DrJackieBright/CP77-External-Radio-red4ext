@@ -1,6 +1,6 @@
-## red4ext-rs example project
-This is a template RED4ext plugin written in Rust.
-It contains a CI job that produces a ZIP archive with your code nicely packaged as a Cyberpunk2077 mod.
+## Cyberpunk 2077 External Radio
+This is a RED4ext plugin written in Rust to control the system media controls based on when the player is in a car.  
+It contains a CI job that produces a ZIP archive with my code nicely packaged as a Cyberpunk2077 mod.
 
 ### requirements
 - LLVM (for building)
@@ -19,5 +19,5 @@ It contains a CI job that produces a ZIP archive with your code nicely packaged 
 ```
 cargo build --release
 ```
-This will produce a DLL file in `target/release/red4ext_rs_example.dll`.
+This will produce a DLL file in `target/release/cp77_externl_radio.dll`.
 It needs to be placed in `Cyberpunk 2077/red4ext/plugins` for RED4ext.

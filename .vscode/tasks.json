@@ -1,0 +1,76 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"build",
+				"--release"
+			],
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		},
+		{
+			"label": "stage",
+			"type": "shell",
+			"command": [
+				"if (Test-Path staging) {} else {mkdir -p staging};",
+				"cd staging;",
+				"if (Test-Path ./red4ext/plugins) {} else {mkdir -p ./red4ext/plugins};",
+				"if (Test-Path ./r6/scripts) {} else {mkdir -p ./r6/scripts};",
+				"cp -R ../reds/* ./r6/scripts;",
+				"cp ../target/release/*.dll ./red4ext/plugins/;"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "zip",
+			"dependsOn": "stage",
+			"type": "shell",
+			"command": [
+				"Compress-Archive -Update -Path '${workspaceFolder}\\staging\\*' -DestinationPath '${workspaceFolder}/\\${workspaceFolderBasename}.zip'"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "install",
+			"dependsOn": "zip",
+			"type": "shell",
+			"command": [
+				"cd ${workspaceFolder};",
+				"$http = [System.Net.HttpListener]::new();",
+				"for ($i = 0; $i -lt 10; $i++) {",
+					"try {",
+						"$http.Prefixes.Add('http://localhost:6969/');",
+						"break;",
+					"} catch [Exception] {",
+						"Start-Sleep 3;",
+					"}",
+				"}",
+				"$http.Start();",
+				"if ($http.IsListening) {",
+				"Start-Process -FilePath \\\"C:/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe\\\" -ArgumentList '-i', ('http://localhost:6969/${workspaceFolderBasename}%20' + (Get-Date -format \\\"H.mm'%20'M-d\\\") + '.zip');",
+				"};",
+				"$context = $http.GetContext();",
+				"$context.Response.StatusCode = 200;",
+				"$context.Response.ContentType = 'application/zip';",
+				"$ContentStream = [System.IO.File]::OpenRead(\\\"${workspaceFolder}/${workspaceFolderBasename}.zip\\\");",
+				"$ContentStream.CopyTo( $Context.Response.OutputStream );",
+				"$context.Response.Close();"
+			],
+			"problemMatcher": []
+		}
+	]
+}

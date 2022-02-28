@@ -1,14 +1,22 @@
 use red4ext_rs::prelude::*;
 
 define_plugin! {
-    name: "example",
-    author: "jekky",
-    version: 1:0:0,
+    name: "CP77-External-Radio",
+    author: "DrJackieBright",
+    version: 2:0:0,
     on_register: {
-        register_function!("SumInts", sum_ints);
+        register_function!("play", play);
+        register_function!("pause", pause);
     }
 }
 
-fn sum_ints(ints: Vec<i32>) -> i32 {
-    ints.iter().sum()
+extern crate windows;
+use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
+
+fn pause() -> bool {
+    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPauseAsync().unwrap().get().unwrap()
+}
+
+fn play() -> bool {
+    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPlayAsync().unwrap().get().unwrap()
 }
