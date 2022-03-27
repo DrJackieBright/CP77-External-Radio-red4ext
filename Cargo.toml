@@ -7,10 +7,10 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-red4ext-rs = { git = "https://github.com/jac3km4/red4ext-rs.git", rev = "v0.1.4" }
+red4ext-rs = { git = "https://github.com/jac3km4/red4ext-rs.git"}
 
 [dependencies.windows]
-version = "0.32.0"
+version = "0.33.0"
 features = [
     "Media_Control",
     "Media",

@@ -13,10 +13,10 @@ define_plugin! {
 extern crate windows;
 use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 
-fn pause() -> bool {
-    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPauseAsync().unwrap().get().unwrap()
+fn pause() {
+    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPauseAsync().unwrap().get().unwrap();
 }
 
-fn play() -> bool {
-    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPlayAsync().unwrap().get().unwrap()
+fn play()  {
+    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPlayAsync().unwrap().get().unwrap();
 }
