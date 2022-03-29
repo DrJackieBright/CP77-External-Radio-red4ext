@@ -30,7 +30,9 @@ jobs:
         run: |
           mkdir -p ./red4ext/plugins
           mkdir -p ./r6/scripts
+          mkdir -p ./r6/tweaks
           cp -R ../reds/* ./r6/scripts
+          cp -R ../tweaks/* ./r6/tweaks
           cp ../target/release/*.dll ./red4ext/plugins/
       - name: Archive artifacts
         uses: actions/upload-artifact@v2

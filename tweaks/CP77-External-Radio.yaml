@@ -1,0 +1,5 @@
+RadioStation.Aux:
+  $type: gamedataRadioStation_Record
+  index: -2
+  displayName: Enable Aux Radio
+  icon: t"UIIcon.CombatHacking_Area_04_Perk_1"

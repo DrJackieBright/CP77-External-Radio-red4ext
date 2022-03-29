@@ -30,7 +30,9 @@
 				"cd staging;",
 				"if (Test-Path ./red4ext/plugins) {} else {mkdir -p ./red4ext/plugins};",
 				"if (Test-Path ./r6/scripts) {} else {mkdir -p ./r6/scripts};",
+				"if (Test-Path ./r6/tweaks) {} else {mkdir -p ./r6/tweaks};",
 				"cp -R ../reds/* ./r6/scripts;",
+				"cp -R ../tweaks/* ./r6/tweaks;",
 				"cp ../target/release/*.dll ./red4ext/plugins/;"
 			],
 			"problemMatcher": []
