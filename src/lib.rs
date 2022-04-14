@@ -13,10 +13,42 @@ define_plugin! {
 extern crate windows;
 use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 
+
+
+macro_rules! handle_err {
+    ($e: expr) => {
+        match $e { Err(_) => {
+            // TODO: figure out how to log
+            // log("[CP77 External Radio] Error: {}", err);
+            return;
+        }, Ok(o) => o }
+    };
+}
+
 fn pause() {
-    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPauseAsync().unwrap().get().unwrap();
+    handle_err!(
+        handle_err!(
+            handle_err!(
+                handle_err!(
+                    handle_err!(
+                        GlobalSystemMediaTransportControlsSessionManager::RequestAsync()
+                    ).get()
+                ).GetCurrentSession()
+            ).TryPauseAsync()
+        ).get()
+    );
 }
 
 fn play()  {
-    GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap().GetCurrentSession().unwrap().TryPlayAsync().unwrap().get().unwrap();
+    handle_err!(
+        handle_err!(
+            handle_err!(
+                handle_err!(
+                    handle_err!(
+                        GlobalSystemMediaTransportControlsSessionManager::RequestAsync()
+                    ).get()
+                ).GetCurrentSession()
+            ).TryPlayAsync()
+        ).get()
+    );
 }
