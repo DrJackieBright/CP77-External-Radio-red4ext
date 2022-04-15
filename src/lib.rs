@@ -13,13 +13,10 @@ define_plugin! {
 extern crate windows;
 use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 
-
-
 macro_rules! handle_err {
     ($e: expr) => {
-        match $e { Err(_) => {
-            // TODO: figure out how to log
-            // log("[CP77 External Radio] Error: {}", err);
+        match $e { Err(err) => {
+            error!("{}", err);
             return;
         }, Ok(o) => o }
     };
