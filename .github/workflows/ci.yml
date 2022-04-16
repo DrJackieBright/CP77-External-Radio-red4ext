@@ -21,10 +21,10 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         id: version_regex
         with:
-          text: ${{ steps.cargo-toml.outputs.contents }}
+          text: ${{ steps.cargo_toml.outputs.content }}
           regex: '\[package\][^[]*version = "(.*)"'
           flags: gm
-          
+      
       - run: echo ${{ format('{0}{1}{2}', '"', steps.version_regex.outputs.match, '"') }}
 
       - name: GitHub Tag
