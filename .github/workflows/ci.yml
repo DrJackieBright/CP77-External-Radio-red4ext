@@ -22,7 +22,7 @@ jobs:
         id: version_regex
         with:
           text: ${{ steps.cargo-toml.outputs.contents }}
-          regex: "\\[package\\][^[]*version = \"(.*)\""
+          regex: '\[package\][^[]*version = "(.*)"'
           flags: gm
           
       - run: echo ${{ steps.version_regex.outputs.group1 }}
