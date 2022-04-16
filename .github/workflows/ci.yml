@@ -20,7 +20,7 @@ jobs:
       - uses: actions-ecosystem/action-regex-match@v2
         id: cargo-version
         with:
-          text: steps.cargo-toml.outputs.contents
+          text: ${{ steps.cargo-toml.outputs.contents }}
           regex: "\\[package\\][^[]*version = \"(.*)\""
           flags: gm      
 
@@ -29,7 +29,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with: 
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          custom_tag: ${steps.cargo-version.outputs.group1}
+          custom_tag: ${{ steps.cargo-version.outputs.group1 }}
 
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=$((gcm clang).source -replace "clang.exe")" >> $env:GITHUB_ENV
