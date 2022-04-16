@@ -1,23 +1,35 @@
-## Cyberpunk 2077 External Radio
-This is a RED4ext plugin written in Rust to control the system media controls based on when the player is in a car.  
-It contains a CI job that produces a ZIP archive with my code nicely packaged as a Cyberpunk2077 mod.
+# [ Cyberpunk 2077 External Radio ]
 
-### requirements
-- LLVM (for building)
-  - On recent versions of Windows you can set it up with:
-    ```powershell
-    winget install llvm
-    # you may need to add it to the path
-    $env:PATH += ";C:\Program Files\LLVM\bin"
-    ```
-- RED4ext (for deployment in the game)
-  - This project currently targets a pre-release version of RED4ext (download [here](https://github.com/WopsS/RED4ext.SDK/suites/5274387056/artifacts/163105991)).
-- redscript (for deployment in the game)
-  - Only required for the native function definition.
+This is the simplest and most versatile solution I could find for a radio replacer.
 
-### build
-```
-cargo build --release
-```
-This will produce a DLL file in `target/release/cp77_externl_radio.dll`.
-It needs to be placed in `Cyberpunk 2077/red4ext/plugins` for RED4ext.
+## [ How it works ]
+
+
+- The redscript script watches for the player to enter or exit the front left seat
+- The redscript calls a function in red4ext that tells the windows global media controls to play or pause
+
+
+## [ Installation ]
+
+
+- Use Vortex or unzip in your game directory
+
+
+## [ Tested Players ]
+
+| Player  | Supported | Plugin required |
+|---------|-----------|-----------------|  
+| Spotify | Yes       | No              |  
+| VLC     | Yes       | [vlc-win10smtc](https://github.com/spmn/vlc-win10smtc)    |
+| Winamp  | Yes       | [gen_smtc](https://github.com/NanMetal/gen_smtc)        |
+| Youtube |![](https://img.icons8.com/fluency/12/000000/chrome.png)  ![](https://img.icons8.com/color/12/000000/firefox.png)  ![](https://img.icons8.com/color/12/000000/ms-edge-new.png) ![](https://img.icons8.com/color/12/000000/opera-gx.png) | No              |
+
+**[Icons8:](https://icons8.com/) [Chrome](https://icons8.com/icons/set/chrome), [Firefox](https://icons8.com/icons/set/firefox), [Edge](https://icons8.com/icons/set/ms-edge-new), [Opera GX](https://icons8.com/icons/set/opera-gx)**
+
+## [ How to know if your player is supported ]
+If your player appears in the windows system media transport controls (SMTC) it is supported  
+This can be seen by changing the volume and seeing if the player shows up  
+![](https://github.com/DrJackieBright/CP77-External-Radio-red4ext/raw/master/Screenshots/Supported%20media%20player.png)  
+If your player is not supported, it will not show up  
+![](https://github.com/DrJackieBright/CP77-External-Radio-red4ext/raw/master/Screenshots/Unsupported%20media%20player.png)  
+If your player is not supported, you may be able to find an SMTC integration plugin
