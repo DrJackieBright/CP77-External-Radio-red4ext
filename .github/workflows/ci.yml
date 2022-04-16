@@ -25,7 +25,7 @@ jobs:
           regex: '\[package\][^[]*version = "(.*)"'
           flags: gm
           
-      - run: echo ${{ steps.version_regex.outputs.match }}
+      - run: echo ${{ '"' + steps.version_regex.outputs.match + '"'}}
 
       - name: GitHub Tag
         id: tag-version
