@@ -12,6 +12,25 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Check Versions
+      - uses: juliangruber/read-file-action@v1
+        id: cargo-toml
+        with: 
+          path: ./cargo.toml
+      - uses: actions-ecosystem/action-regex-match@v2
+        id: cargo-version
+        with:
+          text: steps.cargo-toml.outputs.contents
+          regex: "\\[package\\][^[]*version = \"(.*)\""
+          flags: gm      
+
+      - name: GitHub Tag
+        id: tag-version
+        uses: mathieudutour/github-tag-action@v6.0
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: ${steps.cargo-version.outputs.group1}
+
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=$((gcm clang).source -replace "clang.exe")" >> $env:GITHUB_ENV
       - name: Prepare Rust toolchain
@@ -37,5 +56,6 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
+          name: $CI_REPOSITORY_NAME
           path: |
             staging/**/*
