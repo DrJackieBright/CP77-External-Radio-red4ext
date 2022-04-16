@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: true
       - name: Check Versions
-      - uses: juliangruber/read-file-action@v1
+        uses: juliangruber/read-file-action@v1
         id: cargo-toml
         with: 
           path: ./cargo.toml
