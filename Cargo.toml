@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-red4ext-rs = { git = "https://github.com/jac3km4/red4ext-rs.git"}
+red4ext-rs = { git = "https://github.com/DrJackieBright/red4ext-rs.git"}
 
 [dependencies.windows]
 version = "0.35.0"
