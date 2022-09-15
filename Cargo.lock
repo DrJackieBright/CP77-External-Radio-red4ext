@@ -37,7 +37,7 @@ source = "git+https://github.com/jac3km4/const-combine?rev=v0.1.4#1a3310b205964b
 
 [[package]]
 name = "cp77_external_radio"
-version = "2.1.1"
+version = "2.1.2"
 dependencies = [
  "red4ext-rs",
  "windows",
