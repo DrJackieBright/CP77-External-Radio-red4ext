@@ -48,17 +48,29 @@ public final static func GetRadioStations(player: ref<GameObject>) -> array<ref<
 
 @wrapMethod(VehicleRadioPopupGameController)
 protected func Activate() -> Void {
-    wrappedMethod();
     if !IsDefined(this.m_selectedItem) {
         return;
     };
     let player: wref<PlayerPuppet> = GetPlayer(this.m_playerPuppet.GetGame());
     if this.m_selectedItem.GetStationData().m_record.Index() == -2 {
+        Log("[External Radio] Radio station selected, enabling");
         this.m_quickSlotsManager.SendRadioEvent(false, false, -1);
         player.auxRadioEnabled = true;
     } else {
         player.auxRadioEnabled = false;
+        wrappedMethod();
     }
     if (player.auxRadioEnabled) { play(); }
     else { pause(); }
+}
+
+@wrapMethod(VehicleComponent)
+protected cb func OnVehicleRadioEvent(evt: ref<VehicleRadioEvent>) -> Bool {
+    let ret = wrappedMethod(evt);
+    if (this.m_radioState) {
+        Log("[External Radio] Radio change detected, disabling");
+        GetPlayer(this.GetVehicle().GetGame()).auxRadioEnabled = false;
+        pause();
+    }
+    return ret;
 }
