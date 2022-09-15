@@ -59,6 +59,6 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: $CI_REPOSITORY_NAME
+          name: $GITHUB_REPOSITORY
           path: |
             staging/**/*
