@@ -1,3 +1,5 @@
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/DrJackieBright/CP77-External-Radio-red4ext) [![CI](https://github.com/DrJackieBright/CP77-External-Radio-red4ext/actions/workflows/ci.yml/badge.svg)](https://github.com/DrJackieBright/CP77-External-Radio-red4ext/actions/workflows/ci.yml) ![Custom badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fnexusmodsdownloadsbadge.jackiebright.repl.co%2F%3Fgame%3D3333%26mod%3D3741)
+
 # [ Cyberpunk 2077 External Radio ]
 
 This is the simplest and most versatile solution I could find for a radio replacer.
