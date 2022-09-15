@@ -6,6 +6,8 @@ private cb func OnMountingEvent(evt: ref<MountingEvent>) -> Bool{
     let ret = wrappedMethod(evt);
 
     if (this.auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
+        let vehicleObject: ref<VehicleObject> = GameInstance.FindEntityByID(this.GetGame(), evt.request.lowLevelMountingInfo.parentId) as VehicleObject;
+        vehicleObject.ToggleRadioReceiver(false);
         play();
         Log("[External Radio] Play");
     }
