@@ -13,7 +13,8 @@ This is the simplest and most versatile solution I could find for a radio replac
 
 ## [ Installation ]
 
-
+- Install [redscript](https://www.nexusmods.com/cyberpunk2077/mods/1511), [RED4ext](https://www.nexusmods.com/cyberpunk2077/mods/2380), and [TweakXL](https://www.nexusmods.com/cyberpunk2077/mods/4197)
+- Install [cybercmd](https://www.nexusmods.com/cyberpunk2077/mods/5176) if you use REDmod
 - Use Vortex or unzip in your game directory
 
 
@@ -26,7 +27,7 @@ This is the simplest and most versatile solution I could find for a radio replac
 | Winamp  | Yes       | [gen_smtc](https://github.com/NanMetal/gen_smtc)        |
 | Youtube |![](https://img.icons8.com/fluency/12/000000/chrome.png)  ![](https://img.icons8.com/color/12/000000/firefox.png)  ![](https://img.icons8.com/color/12/000000/ms-edge-new.png) ![](https://img.icons8.com/color/12/000000/opera-gx.png) | No              |
 
-**[Icons8:](https://icons8.com/) [Chrome](https://icons8.com/icons/set/chrome), [Firefox](https://icons8.com/icons/set/firefox), [Edge](https://icons8.com/icons/set/ms-edge-new), [Opera GX](https://icons8.com/icons/set/opera-gx)**
+<sup>Note: a more comprehensive list of SMTC compatible players [can be found here](https://github.com/ModernFlyouts-Community/ModernFlyouts/blob/main/docs/GSMTC-Support-And-Popular-Apps.md)</sup>
 
 ## [ How to know if your player is supported ]
 If your player appears in the windows system media transport controls (SMTC) it is supported  
@@ -35,3 +36,5 @@ This can be seen by changing the volume and seeing if the player shows up
 If your player is not supported, it will not show up  
 ![](https://github.com/DrJackieBright/CP77-External-Radio-red4ext/raw/master/Screenshots/Unsupported%20media%20player.png)  
 If your player is not supported, you may be able to find an SMTC integration plugin
+
+<sub>[Icons8:](https://icons8.com/) [Chrome](https://icons8.com/icons/set/chrome), [Firefox](https://icons8.com/icons/set/firefox), [Edge](https://icons8.com/icons/set/ms-edge-new), [Opera GX](https://icons8.com/icons/set/opera-gx)</sub>
