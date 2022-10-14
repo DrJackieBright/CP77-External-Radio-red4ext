@@ -5,7 +5,7 @@ native func pause() -> Bool;
 private cb func OnMountingEvent(evt: ref<MountingEvent>) -> Bool{
     let ret = wrappedMethod(evt);
 
-    if (this.auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
+    if (this.GetPS().auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
         let vehicleObject: ref<VehicleObject> = GameInstance.FindEntityByID(this.GetGame(), evt.request.lowLevelMountingInfo.parentId) as VehicleObject;
         vehicleObject.ToggleRadioReceiver(false);
         play();
@@ -19,7 +19,7 @@ private cb func OnMountingEvent(evt: ref<MountingEvent>) -> Bool{
 private cb func OnUnmountingEvent(evt: ref<UnmountingEvent>) -> Bool{
     let ret = wrappedMethod(evt);
 
-    if (this.auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
+    if (this.GetPS().auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
         pause();
         Log("[External Radio] Pause");
     }
@@ -27,14 +27,8 @@ private cb func OnUnmountingEvent(evt: ref<UnmountingEvent>) -> Bool{
     return ret;
 }
 
-@addField(PlayerPuppet)
-let auxRadioEnabled: Bool;
-
-@wrapMethod(PlayerPuppet)
-protected cb func OnGameAttached() -> Bool {
-    this.auxRadioEnabled = false;
-    return wrappedMethod();
-}
+@addField(PlayerPuppetPS)
+private persistent let auxRadioEnabled: Bool;
 
 @wrapMethod(VehiclesManagerDataHelper)
 public final static func GetRadioStations(player: ref<GameObject>) -> array<ref<IScriptable>> {
@@ -55,11 +49,11 @@ protected func Activate() -> Void {
     if this.m_selectedItem.GetStationData().m_record.Index() == -2 {
         Log("[External Radio] Radio station selected, enabling");
         this.m_quickSlotsManager.SendRadioEvent(false, false, -1);
-        player.auxRadioEnabled = true;
+        player.GetPS().auxRadioEnabled = true;
         play();
     } else { 
-        if (player.auxRadioEnabled) {
-            player.auxRadioEnabled = false;
+        if (player.GetPS().auxRadioEnabled) {
+            player.GetPS().auxRadioEnabled = false;
             pause();
         }
         wrappedMethod();
@@ -69,9 +63,9 @@ protected func Activate() -> Void {
 @wrapMethod(VehicleComponent)
 protected cb func OnVehicleRadioEvent(evt: ref<VehicleRadioEvent>) -> Bool {
     let ret = wrappedMethod(evt);
-    if (this.m_radioState && GetPlayer(this.GetVehicle().GetGame()).auxRadioEnabled) {
+    if (this.m_radioState && GetPlayer(this.GetVehicle().GetGame()).GetPS().auxRadioEnabled) {
         Log("[External Radio] Radio change detected, disabling");
-        GetPlayer(this.GetVehicle().GetGame()).auxRadioEnabled = false;
+        GetPlayer(this.GetVehicle().GetGame()).GetPS().auxRadioEnabled = false;
         pause();
     }
     return ret;
