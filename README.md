@@ -27,8 +27,7 @@ This is the simplest and most versatile solution I could find for a radio replac
 | Winamp  | Yes       | [gen_smtc](https://github.com/NanMetal/gen_smtc)        |
 | Youtube |![](https://img.icons8.com/fluency/12/000000/chrome.png)  ![](https://img.icons8.com/color/12/000000/firefox.png)  ![](https://img.icons8.com/color/12/000000/ms-edge-new.png) ![](https://img.icons8.com/color/12/000000/opera-gx.png) | No              |
 
-<sup>*You need to enable ["Show desktop overlaywhen using media keys"](https://i.imgur.com/TqZOvGY.png)</sup>
-
+<sup>*For Spotify, you may need to enable ["Show desktop overlay when using media keys"](https://i.imgur.com/TqZOvGY.png) in the settings</sup>  
 <sup>Note: a more comprehensive list of SMTC compatible players [can be found here](https://github.com/ModernFlyouts-Community/ModernFlyouts/blob/main/docs/GSMTC-Support-And-Popular-Apps.md)</sup>
 
 ## [ How to know if your player is supported ]
