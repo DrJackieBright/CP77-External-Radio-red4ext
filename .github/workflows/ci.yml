@@ -4,6 +4,7 @@ on: [push]
 
 env:
   CARGO_TERM_COLOR: always
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -65,7 +66,6 @@ jobs:
       - name: Archive artifacts
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
-          name: CP77-External-Radio-red4ext.zip
           path: |
             staging/**/*
           release-upload-url: ${{ steps.draft-release.outputs.upload_url }}
