@@ -33,6 +33,11 @@ jobs:
         with: 
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ steps.version_regex.outputs.group1 }}
+          
+      - name: Release Draft
+        uses: crs-k/release-draft@v0.6.15
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=$((gcm clang).source -replace "clang.exe")" >> $env:GITHUB_ENV
@@ -59,6 +64,6 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: $GITHUB_REPOSITORY
+          name: CP77-External-Radio-red4ext.zip
           path: |
             staging/**/*
