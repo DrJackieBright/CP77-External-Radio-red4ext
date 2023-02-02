@@ -54,7 +54,7 @@ jobs:
           command: build
           args: --release
       - run: mkdir staging
-      - name: Create a mod archive
+      - name: Stage
         working-directory: staging
         run: |
           mkdir -p ./red4ext/plugins
@@ -63,11 +63,17 @@ jobs:
           cp -R ../reds/* ./r6/scripts
           cp -R ../tweaks/* ./r6/tweaks
           cp ../target/release/*.dll ./red4ext/plugins/
-      - name: Archive artifacts
+      - name: Compress zip
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          filename: CP77-External-Radio-red4ext.zip
+          path: staging/**/*
+          type: zip
+          
+      - name: Upload zip
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
-          path: |
-            staging/**/*
+          path: CP77-External-Radio-red4ext.zip
           release-upload-url: ${{ steps.draft-release.outputs.upload_url }}
           upload-release-files: true
           
