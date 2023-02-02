@@ -35,6 +35,7 @@ jobs:
           custom_tag: ${{ steps.version_regex.outputs.group1 }}
           
       - name: Release Draft
+        id: draft-release
         uses: crs-k/release-draft@v0.6.15
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -62,8 +63,11 @@ jobs:
           cp -R ../tweaks/* ./r6/tweaks
           cp ../target/release/*.dll ./red4ext/plugins/
       - name: Archive artifacts
-        uses: actions/upload-artifact@v2
+        uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
           name: CP77-External-Radio-red4ext.zip
           path: |
             staging/**/*
+          release-upload-url: ${{ steps.draft-release.outputs.upload_url }}
+          upload-release-files: true
+          
