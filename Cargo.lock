@@ -3,18 +3,6 @@
 version = 3
 
 [[package]]
-name = "array-init"
-version = "2.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d62b7694a562cdf5a74227903507c56ab2cc8bdd1f781ed5cb4cf9c9f810bfc"
-
-[[package]]
-name = "autocfg"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
-
-[[package]]
 name = "cc"
 version = "1.0.79"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -34,6 +22,11 @@ dependencies = [
 name = "const-combine"
 version = "0.1.0"
 source = "git+https://github.com/jac3km4/const-combine?rev=v0.1.4#1a3310b205964b72f8bb15223a4fd31285e7c1d2"
+
+[[package]]
+name = "const-crc32"
+version = "1.1.0"
+source = "git+https://git.shipyard.rs/Roms1383/const-crc32?rev=9c688f3ad1#9c688f3ad1e01c92da7e65dc5365f8cb47e38df6"
 
 [[package]]
 name = "cp77_external_radio"
@@ -88,22 +81,32 @@ dependencies = [
 ]
 
 [[package]]
-name = "erasable"
-version = "1.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f11890ce181d47a64e5d1eb4b6caba0e7bae911a356723740d058a5d0340b7d"
-dependencies = [
- "autocfg",
- "scopeguard",
-]
-
-[[package]]
 name = "link-cplusplus"
 version = "1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ecd207c9c713c34f95a097a5b029ac2ce6010530c7b49d7fea24d977dede04f5"
 dependencies = [
  "cc",
+]
+
+[[package]]
+name = "num_enum"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7a015b430d3c108a207fd776d2e2196aaf8b1cf8cf93253e3a097ff3085076a1"
+dependencies = [
+ "num_enum_derive",
+]
+
+[[package]]
+name = "num_enum_derive"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "96667db765a921f7b295ffee8b60472b686a51d4f21c2ee4ffdb94c7013b65a6"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.15",
 ]
 
 [[package]]
@@ -133,22 +136,25 @@ dependencies = [
 [[package]]
 name = "red4ext-rs"
 version = "0.1.0"
-source = "git+https://github.com/DrJackieBright/red4ext-rs.git#3c5ae2fb3d772ea77fe21136ccac80492b29e3db"
+source = "git+https://github.com/DrJackieBright/red4ext-rs.git#8f1d6fbf5fb845240d0da9a4b97229e0fb6a1f02"
 dependencies = [
- "array-init",
  "const-combine",
- "cxx",
- "cxx-build",
- "erasable",
  "once_cell",
+ "red4ext-sys",
+ "thiserror",
  "wchar",
 ]
 
 [[package]]
-name = "scopeguard"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
+name = "red4ext-sys"
+version = "0.1.0"
+source = "git+https://github.com/DrJackieBright/red4ext-rs.git#8f1d6fbf5fb845240d0da9a4b97229e0fb6a1f02"
+dependencies = [
+ "const-crc32",
+ "cxx",
+ "cxx-build",
+ "num_enum",
+]
 
 [[package]]
 name = "scratch"
@@ -185,6 +191,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "be55cf8942feac5c765c2c993422806843c9a9a45d4d5c407ad6dd2ea95eb9b6"
 dependencies = [
  "winapi-util",
+]
+
+[[package]]
+name = "thiserror"
+version = "1.0.40"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "978c9a314bd8dc99be594bc3c175faaa9794be04a5a5e153caba6915336cebac"
+dependencies = [
+ "thiserror-impl",
+]
+
+[[package]]
+name = "thiserror-impl"
+version = "1.0.40"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f9456a42c5b0d803c8cd86e73dd7cc9edd429499f37a3550d286d5e86720569f"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.15",
 ]
 
 [[package]]
