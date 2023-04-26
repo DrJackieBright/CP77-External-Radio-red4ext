@@ -1,0 +1,26 @@
+name: Update-Deps
+
+on:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+jobs:
+  update-deps:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: cargo update
+        uses: actions-rs/cargo@v1
+        with:
+          command: cargo
+          args: update
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Update Dependencies
+          branch: github-actions-update-dependencies
