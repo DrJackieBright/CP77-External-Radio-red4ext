@@ -9,7 +9,7 @@ jobs:
           uses: robinraju/release-downloader@v1.8
           with: 
             latest: true
-            zipBall: true
+            fileName: "*.zip"
         - name: Upload mod to NexusMods
           uses: Vodianoi/uploadMod@0.9.41
           with:
