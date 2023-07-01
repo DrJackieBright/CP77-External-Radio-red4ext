@@ -74,7 +74,7 @@ jobs:
         uses: mknejp/delete-release-assets@v1
         with:
           token: ${{ github.token }}
-          tag: ${{ steps.version_regex.outputs.group1 }}
+          tag: ${{ steps.tag-version.outputs.new_tag }}
           assets: '*.zip'
           
       - name: Upload zip
