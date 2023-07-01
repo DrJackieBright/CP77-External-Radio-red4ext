@@ -83,4 +83,4 @@ jobs:
           files: CP77-External-Radio-red4ext.zip
           prerelease: true
           generate_release_notes: true
-          
+          tag_name: ${{ steps.tag-version.outputs.new_tag }}
