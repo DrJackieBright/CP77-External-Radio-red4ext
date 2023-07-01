@@ -17,8 +17,7 @@ jobs:
       - name: cargo update
         uses: actions-rs/cargo@v1
         with:
-          command: cargo
-          args: update
+          command: update
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
