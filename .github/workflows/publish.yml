@@ -1,0 +1,24 @@
+name: Upload mod
+on:
+  workflow_dispatch:  
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+        - id: download-release
+          uses: robinraju/release-downloader@v1.8
+          with: 
+            latest: true
+            zipBall: true
+        - name: Upload mod to NexusMods
+          uses: Vodianoi/uploadMod@0.9.41
+          with:
+            mod-id: '3741'
+            archive-file: ${{ fromJson(steps.download-release.outputs.downloaded_files)[0] }}
+            file-name: 'CP77 External Radio'
+            version: ${{steps.download-release.outputs.tag_name}}
+            game: 'cyberpunk2077'
+            NEXUSMOD_API_KEY: ${{ secrets.NEXUSMOD_API_KEY }}
+            NEXUSMOD_COOKIE_NEXUSID: ${{ secrets.NEXUSMOD_COOKIE_NEXUSID }}
+            NEXUSMOD_COOKIE_SID_DEVELOP: ${{ secrets.NEXUSMOD_COOKIE_SID_DEVELOP }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
