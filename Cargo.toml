@@ -1,6 +1,6 @@
 [package]
 name = "cp77_external_radio"
-version = "2.1.7"
+version = "2.1.8"
 edition = "2021"
 
 [lib]
