@@ -11,7 +11,7 @@ jobs:
             latest: true
             fileName: "*.zip"
         - name: Upload mod to NexusMods
-          uses: Vodianoi/uploadMod@0.9.41
+          uses: DrJackieBright/uploadMod@latest
           with:
             mod-id: '3741'
             archive-file: ${{ fromJson(steps.download-release.outputs.downloaded_files)[0] }}
