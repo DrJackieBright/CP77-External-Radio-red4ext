@@ -28,8 +28,9 @@ source = "git+https://github.com/jac3km4/const-combine?rev=v0.1.4#1a3310b205964b
 
 [[package]]
 name = "const-crc32"
-version = "1.1.0"
-source = "git+https://git.shipyard.rs/Roms1383/const-crc32?rev=9c688f3ad1#9c688f3ad1e01c92da7e65dc5365f8cb47e38df6"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68d13f542d70e5b339bf46f6f74704ac052cfd526c58cd87996bd1ef4615b9a0"
 
 [[package]]
 name = "cp77_external_radio"
@@ -145,7 +146,7 @@ dependencies = [
 [[package]]
 name = "red4ext-rs"
 version = "0.3.3"
-source = "git+https://github.com/DrJackieBright/red4ext-rs.git#fa184f9ec5d44e8b539106abb3d032b09a1595b3"
+source = "git+https://github.com/DrJackieBright/red4ext-rs.git#0f9981aa83af62b8006fefdf8ffe7343745d967d"
 dependencies = [
  "const-combine",
  "red4ext-sys",
@@ -156,7 +157,7 @@ dependencies = [
 [[package]]
 name = "red4ext-sys"
 version = "0.3.3"
-source = "git+https://github.com/DrJackieBright/red4ext-rs.git#fa184f9ec5d44e8b539106abb3d032b09a1595b3"
+source = "git+https://github.com/DrJackieBright/red4ext-rs.git#0f9981aa83af62b8006fefdf8ffe7343745d967d"
 dependencies = [
  "const-crc32",
  "cxx",
