@@ -9,7 +9,7 @@ private cb func OnMountingEvent(evt: ref<MountingEvent>) -> Bool{
         let vehicleObject: ref<VehicleObject> = GameInstance.FindEntityByID(this.GetGame(), evt.request.lowLevelMountingInfo.parentId) as VehicleObject;
         vehicleObject.ToggleRadioReceiver(false);
         play();
-        Log("[External Radio] Play");
+        // Log("[External Radio] Play");
     }
 
     return ret;
@@ -21,7 +21,7 @@ private cb func OnUnmountingEvent(evt: ref<UnmountingEvent>) -> Bool{
 
     if (this.GetPS().auxRadioEnabled && Equals(evt.request.lowLevelMountingInfo.slotId.id, n"seat_front_left")) {
         pause();
-        Log("[External Radio] Pause");
+        // Log("[External Radio] Pause");
     }
 
     return ret;
@@ -36,7 +36,7 @@ public final static func GetRadioStations(player: ref<GameObject>) -> array<ref<
     let auxArray: array<ref<IScriptable>>;
     VehiclesManagerDataHelper.PushRadioStationData(auxArray, TweakDBInterface.GetRadioStationRecord(t"RadioStation.Aux"));
     ArrayInsert(res, 1, auxArray[0]);
-    Log("[External Radio] Inserted radio station");
+    // Log("[External Radio] Inserted radio station");
     return res;
 }
 
@@ -47,7 +47,7 @@ protected func Activate() -> Void {
     };
     let player: wref<PlayerPuppet> = GetPlayer(this.m_playerPuppet.GetGame());
     if this.m_selectedItem.GetStationData().m_record.Index() == -2 {
-        Log("[External Radio] Radio station selected, enabling");
+        // Log("[External Radio] Radio station selected, enabling");
         this.m_quickSlotsManager.SendRadioEvent(false, false, -1);
         player.GetPS().auxRadioEnabled = true;
         play();
@@ -64,7 +64,7 @@ protected func Activate() -> Void {
 protected cb func OnVehicleRadioEvent(evt: ref<VehicleRadioEvent>) -> Bool {
     let ret = wrappedMethod(evt);
     if (this.m_radioState && GetPlayer(this.GetVehicle().GetGame()).GetPS().auxRadioEnabled) {
-        Log("[External Radio] Radio change detected, disabling");
+        // Log("[External Radio] Radio change detected, disabling");
         GetPlayer(this.GetVehicle().GetGame()).GetPS().auxRadioEnabled = false;
         pause();
     }
