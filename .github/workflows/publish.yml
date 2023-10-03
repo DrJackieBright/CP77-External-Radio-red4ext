@@ -18,7 +18,8 @@ jobs:
             file-name: 'CP77 External Radio'
             version: ${{steps.download-release.outputs.tag_name}}
             game: 'cyberpunk2077'
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          env:
             NEXUSMOD_API_KEY: ${{ secrets.NEXUSMOD_API_KEY }}
             NEXUSMOD_COOKIE_NEXUSID: ${{ secrets.NEXUSMOD_COOKIE_NEXUSID }}
             NEXUSMOD_COOKIE_SID_DEVELOP: ${{ secrets.NEXUSMOD_COOKIE_SID_DEVELOP }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
