@@ -34,7 +34,7 @@ checksum = "68d13f542d70e5b339bf46f6f74704ac052cfd526c58cd87996bd1ef4615b9a0"
 
 [[package]]
 name = "cp77_external_radio"
-version = "2.1.9"
+version = "2.1.11"
 dependencies = [
  "red4ext-rs",
  "windows",
@@ -146,7 +146,7 @@ dependencies = [
 [[package]]
 name = "red4ext-rs"
 version = "0.3.3"
-source = "git+https://github.com/DrJackieBright/red4ext-rs.git#53b0230cb23ae95daee0bd5a2d87870a7e48937a"
+source = "git+https://github.com/jac3km4/red4ext-rs.git#53b0230cb23ae95daee0bd5a2d87870a7e48937a"
 dependencies = [
  "const-combine",
  "red4ext-sys",
@@ -157,7 +157,7 @@ dependencies = [
 [[package]]
 name = "red4ext-sys"
 version = "0.3.3"
-source = "git+https://github.com/DrJackieBright/red4ext-rs.git#53b0230cb23ae95daee0bd5a2d87870a7e48937a"
+source = "git+https://github.com/jac3km4/red4ext-rs.git#53b0230cb23ae95daee0bd5a2d87870a7e48937a"
 dependencies = [
  "const-crc32",
  "cxx",
