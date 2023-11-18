@@ -34,7 +34,7 @@ checksum = "68d13f542d70e5b339bf46f6f74704ac052cfd526c58cd87996bd1ef4615b9a0"
 
 [[package]]
 name = "cp77_external_radio"
-version = "2.1.11"
+version = "2.1.12"
 dependencies = [
  "red4ext-rs",
  "windows",
