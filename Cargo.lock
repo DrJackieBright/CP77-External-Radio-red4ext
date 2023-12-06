@@ -127,9 +127,9 @@ checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.69"
+version = "1.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "134c189feb4956b20f6f547d2cf727d4c0fe06722b20a0eec87ed445a97f92da"
+checksum = "39278fbbf5fb4f646ce651690877f89d1c5811a3d4acb27700c1cb3cdb78fd3b"
 dependencies = [
  "unicode-ident",
 ]
@@ -146,7 +146,7 @@ dependencies = [
 [[package]]
 name = "red4ext-rs"
 version = "0.5.3"
-source = "git+https://github.com/jac3km4/red4ext-rs.git#69712933da0674751691c48a75fa4c360f1aac97"
+source = "git+https://github.com/jac3km4/red4ext-rs.git#87ddfb465f6ef3036e7d490ba95846e1177acd97"
 dependencies = [
  "const-combine",
  "red4ext-sys",
@@ -157,7 +157,7 @@ dependencies = [
 [[package]]
 name = "red4ext-sys"
 version = "0.5.3"
-source = "git+https://github.com/jac3km4/red4ext-rs.git#69712933da0674751691c48a75fa4c360f1aac97"
+source = "git+https://github.com/jac3km4/red4ext-rs.git#87ddfb465f6ef3036e7d490ba95846e1177acd97"
 dependencies = [
  "const-crc32",
  "cxx",
