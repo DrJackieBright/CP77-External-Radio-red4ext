@@ -1,6 +1,11 @@
 name: CI
 
-on: [push]
+on: 
+  push:
+    branches:
+      - 'main'
+      - 'github-actions-update-dependencies'
+    
 
 env:
   CARGO_TERM_COLOR: always
