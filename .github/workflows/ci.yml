@@ -42,16 +42,17 @@ jobs:
           cp -R ../reds/* ./r6/scripts
           cp -R ../tweaks/* ./r6/tweaks
           cp ../target/release/*.dll ./red4ext/plugins/
-      - name: Compress zip
-        uses: thedoctor0/zip-release@0.7.1
-        with:
-          filename: CP77-External-Radio-red4ext.zip
-          path: staging/**/*
-          type: zip
+      # - name: Compress zip
+      #   uses: thedoctor0/zip-release@0.7.1
+      #   with:
+      #     directory: staging
+      #     filename: ../CP77-External-Radio-red4ext.zip
+      #     path: /**/*
+      #     type: zip
       - uses: actions/upload-artifact@v3
         with:
           name: CP77-External-Radio-red4ext.zip
-          path: CP77-External-Radio-red4ext.zip
+          path: staging/
   draft-release:
     needs: build
     runs-on: windows-latest
