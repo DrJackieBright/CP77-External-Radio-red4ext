@@ -51,7 +51,7 @@ jobs:
       #     type: zip
       - uses: actions/upload-artifact@v3
         with:
-          name: CP77-External-Radio-red4ext.zip
+          name: CP77-External-Radio-red4ext
           path: staging/
   draft-release:
     needs: build
